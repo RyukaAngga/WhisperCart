@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="id">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+	<link rel="shortcut icon" href="assets/images/favicon.png">
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/css/sidebar.css" rel="stylesheet">
+	<link href="assets/css/ai.css" rel="stylesheet">
+	<title>Whisper AI — Asisten Belanja Cerdas</title>
+</head>
+
+<body>
+
+	<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+	<div class="toast-rekom-notif" id="toastRekomNotif">
+		<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#28a745" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+		<span>Ditambahkan ke keranjang!</span>
+	</div>
+
+	<div class="tata-letak-aplikasi">
+
+		<aside class="sidebar" id="sidebarApp">
+			<div class="sidebar-kepala">
+				<a class="sidebar-merek" href="dashboard.html">
+					<img src="assets/images/logo/logo_icon.svg" alt="WhisperCart Logo" class="brand-logo-icon">
+					<span class="brand-logo-text">WhisperCart<span class="text-warning">.</span></span>
+				</a>
+				<button class="btn-toggle-sidebar" id="btnToggleSidebar" title="Minimize / Expand">
+					<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+						<polyline points="15 18 9 12 15 6"></polyline>
+					</svg>
+				</button>
+			</div>
+
+			<div class="sidebar-chat-baru-wrap">
+				<button class="btn-chat-baru" id="btnChatBaruSidebar">
+					<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="12" y1="5" x2="12" y2="19"></line>
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+					</svg>
+					<span>Obrolan Baru AI</span>
+				</button>
+			</div>
+
+			<div class="sidebar-cari">
+				<div class="sidebar-cari-box">
+					<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="11" cy="11" r="8"></circle>
+						<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+					</svg>
+					<input type="text" id="inputCariSidebar" placeholder="Cari produk...">
+				</div>
+			</div>
+
+			<nav class="sidebar-menu">
+				<a href="dashboard.html" class="sidebar-item">
+					<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+						<polyline points="9 22 9 12 15 12 15 22"></polyline>
+					</svg>
+					<span class="menu-teks">Beranda</span>
+				</a>
+				<a href="ai.html" class="sidebar-item ai-menu aktif">
+					<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<rect x="3" y="11" width="18" height="10" rx="3"></rect>
+						<circle cx="12" cy="5" r="2"></circle>
+						<path d="M12 7v4"></path>
+						<line x1="8" y1="16" x2="8" y2="16"></line>
+						<line x1="16" y1="16" x2="16" y2="16"></line>
+					</svg>
+					<span class="menu-teks">Whisper AI</span>
+				</a>
+				<a href="cart.html" class="sidebar-item">
+					<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="9" cy="21" r="1"></circle>
+						<circle cx="20" cy="21" r="1"></circle>
+						<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+					</svg>
+					<span class="menu-teks">Keranjang</span>
+					<span class="sidebar-badge" id="sidebarBadgeKeranjang" style="display: none;">0</span>
+				</a>
+				<a href="orders.html" class="sidebar-item">
+					<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+						<polyline points="14 2 14 8 20 8"></polyline>
+						<line x1="16" y1="13" x2="8" y2="13"></line>
+						<line x1="16" y1="17" x2="8" y2="17"></line>
+						<polyline points="10 9 9 9 8 9"></polyline>
+					</svg>
+					<span class="menu-teks">Riwayat Pesanan</span>
+				</a>
+			</nav>
+
+			<div class="sidebar-akun">
+				<div class="sidebar-profil-info" style="cursor: pointer;">
+					<div id="sidebarAvatar">
+						<div class="sidebar-avatar-inisial">U</div>
+					</div>
+					<div>
+						<div class="sidebar-profil-nama" id="sidebarNamaUser">Pengguna</div>
+						<div class="sidebar-profil-email" id="sidebarEmailUser">user@whispercart.com</div>
+					</div>
+				</div>
+			</div>
+		</aside>
+
+		<main class="konten-utama" id="kontenUtamaApp">
+			<div class="ai-workspace">
+
+				<header class="ai-header">
+					<div class="ai-header-kiri">
+						<button class="btn-hamburger-ai" id="btnMobileMenu" title="Buka Menu">
+							<svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<line x1="3" y1="12" x2="21" y2="12"></line>
+								<line x1="3" y1="6" x2="21" y2="6"></line>
+								<line x1="3" y1="18" x2="21" y2="18"></line>
+							</svg>
+						</button>
+						<div class="ai-model-selector">
+							<span>Whisper AI</span>
+						</div>
+						<div class="ai-mode-switcher d-inline-flex align-items-center bg-light p-1 rounded-pill border ms-2">
+							<button class="btn btn-sm rounded-pill px-3 fw-semibold btn-mode-nav aktif" id="btnTabModeTeks">
+								<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" class="me-1"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+								<span>Teks</span>
+							</button>
+							<button class="btn btn-sm rounded-pill px-3 fw-semibold btn-mode-nav" id="btnTabModeVoice">
+								<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" class="me-1"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+								<span>Live Voice</span>
+							</button>
+						</div>
+					</div>
+					<div class="ai-header-kanan d-flex align-items-center gap-2">
+						<a href="cart.html" class="btn-header-cart" title="Keranjang Belanja">
+							<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<circle cx="9" cy="21" r="1"></circle>
+								<circle cx="20" cy="21" r="1"></circle>
+								<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+							</svg>
+							<span class="badge-merah" id="headerBadgeKeranjang" style="display: none;">0</span>
+						</a>
+						<div class="btn-header-profil" id="btnHeaderProfil">
+							<div class="sidebar-avatar-inisial header-avatar-circle" style="width: 26px; height: 26px; font-size: 0.75rem;">U</div>
+							<span class="header-profil-nama fw-semibold small text-dark d-none d-sm-inline">Pengguna</span>
+						</div>
+					</div>
+				</header>
+
+				<div class="ai-body-split">
+
+					<div class="ai-chat-column">
+						<div class="ai-chat-area" id="daftarChatBesar">
+							<div class="ai-chat-inner" id="aiChatInner">
+
+								<div class="ai-sapaan-center" id="aiSapaanCenter">
+									<div class="ai-emblem-chatgpt">
+										<img src="assets/images/logo/logo_icon.svg" style="width: 28px; height: 28px; filter: brightness(0);" alt="WhisperCart Logo">
+									</div>
+									<h2>Ada yang bisa saya bantu belanja hari ini?</h2>
+									<p>Ketik kebutuhan furnitur atau dekorasi impian Anda, atau pilih topik saran di bawah ini.</p>
+
+									<div class="saran-chips-container">
+										<button class="btn-saran-chip" data-prompt="Rekomendasikan sofa minimalis yang nyaman untuk ruang tamu keluarga.">
+											<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+												<path d="M6 19v-3"></path>
+												<path d="M18 19v-3"></path>
+												<path d="M4 11a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5H4z"></path>
+											</svg>
+											<span>Sofa minimalis ruang tamu</span>
+										</button>
+
+										<button class="btn-saran-chip" data-prompt="Cari meja kerja ergonomis dan kursi kantor nyaman untuk kerja seharian.">
+											<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+												<rect x="2" y="3" width="20" height="14" rx="2"></rect>
+												<line x1="8" y1="21" x2="16" y2="21"></line>
+											</svg>
+											<span>Meja kerja & kursi ergonomis</span>
+										</button>
+
+										<button class="btn-saran-chip" data-prompt="Rekomendasi dekorasi rumah estetik modern dengan budget terjangkau.">
+											<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+												<path d="M9 18h6"></path>
+												<path d="M10 22h4"></path>
+												<path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5z"></path>
+											</svg>
+											<span>Dekorasi estetik hemat budget</span>
+										</button>
+
+										<button class="btn-saran-chip" data-prompt="Produk apa saja yang paling laris dan recommended di WhisperCart?">
+											<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+												<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+											</svg>
+											<span>Produk terlaris minggu ini</span>
+										</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+						<button class="btn-scroll-bottom" id="btnScrollBottom">
+							<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+							<span>Pesan Terbaru</span>
+						</button>
+
+						<button class="btn-rekom-floating" id="btnBukaRekomFloating" style="display: none;" title="Buka Rekomendasi Produk">
+							<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+							<span>Rekomendasi (<span id="jmlRekomFloating">0</span>)</span>
+						</button>
+
+						<div class="ai-input-floating" id="aiInputFloating">
+							<div class="ai-input-capsule">
+								<div class="ai-input-baris-utama">
+									<textarea id="kotakChatAI" rows="1" placeholder="Tanyakan apa saja ke Whisper AI..."></textarea>
+									<button class="btn-mic-input" id="btnMicInput" title="Bicara Langsung (Live Voice)">
+										<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+											<path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+											<line x1="12" y1="19" x2="12" y2="23"></line>
+											<line x1="8" y1="23" x2="16" y2="23"></line>
+										</svg>
+									</button>
+									<button class="btn-lingkar-aksi" id="tombolAksiChat" title="Kirim Pesan">
+										<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+											<line x1="12" y1="19" x2="12" y2="5"></line>
+											<polyline points="5 12 12 5 19 12"></polyline>
+										</svg>
+									</button>
+								</div>
+							</div>
+							<p class="ai-footer-note">Whisper AI dapat membuat kesalahan. Periksa informasi produk sebelum membeli.</p>
+						</div>
+
+						<div class="ai-voice-area" id="aiVoiceArea" style="display: none;">
+							<div class="voice-center-container text-center">
+								<div class="voice-avatar-orb-wrap mb-4">
+									<div class="voice-pulse-ring ring-1"></div>
+									<div class="voice-pulse-ring ring-2"></div>
+									<button class="btn-voice-mic-main" id="btnVoiceMicMain" title="Mulai Bicara / Hentikan">
+										<svg class="icon-mic-main" id="iconMicMain" viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+											<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+											<path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+											<line x1="12" y1="19" x2="12" y2="23"></line>
+											<line x1="8" y1="23" x2="16" y2="23"></line>
+										</svg>
+										<svg class="icon-stop-main" id="iconStopMain" viewBox="0 0 24 24" width="32" height="32" fill="currentColor" style="display: none;">
+											<rect x="5" y="5" width="14" height="14" rx="2"></rect>
+										</svg>
+									</button>
+								</div>
+
+								<h2 class="h4 fw-bold text-dark mb-1" id="voiceStatusJudul">Start Live Voice</h2>
+								<p class="text-muted fs-6 mb-4" id="voiceStatusSub">Talk naturally with your AI assistant using your voice.</p>
+
+								<div class="voice-transcript-card mx-auto text-start p-3 rounded-4 bg-white border shadow-sm mb-4" id="voiceTranscriptCard" style="max-width: 520px; display: none;">
+									<div class="small text-muted mb-1 fw-semibold d-flex align-items-center gap-1" id="voiceTranscriptLabel">
+										<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path></svg>
+										<span>Anda:</span>
+									</div>
+									<div class="text-dark fw-medium" id="voiceTranscriptTeks">...</div>
+								</div>
+
+								<div class="d-flex justify-content-center gap-3">
+									<button class="btn btn-outline-secondary px-4 py-2 rounded-pill d-inline-flex align-items-center gap-2" id="btnKembaliTeks">
+										<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+										<span>Beralih ke Chat Teks</span>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<aside class="ai-recommendation-panel tersembunyi" id="panelRekomendasi">
+						<div class="rekomendasi-header">
+							<div class="rekomendasi-header-judul">
+								<h3>
+									<img src="assets/images/logo/logo_icon.svg" style="width: 20px; height: 20px; vertical-align: text-bottom; margin-right: 6px;" alt="Logo WhisperCart">
+									Rekomendasi AI
+								</h3>
+								<span class="rekomendasi-header-sub">Produk pilihan sesuai percakapan</span>
+							</div>
+							<div class="rekomendasi-header-kanan">
+								<button class="btn-tutup-rekom" id="btnTutupRekom" title="Sembunyikan Layar Rekomendasi">
+									<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+								</button>
+							</div>
+						</div>
+
+						<div class="px-3 pt-2 pb-1 border-bottom bg-light">
+							<div class="d-flex align-items-center bg-white p-1 rounded-pill border shadow-sm" style="border-color: #e2e8f0 !important;">
+								<button type="button" class="btn btn-sm rounded-pill w-50 font-weight-bold text-white btn-segment-tab aktif d-flex align-items-center justify-content-center gap-1" id="btnTabRekomIndividu" style="font-size: 0.8rem; background: #3b5d50; transition: all 0.2s ease;">
+									<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+									<span>Rekomendasi</span>
+								</button>
+								<button type="button" class="btn btn-sm rounded-pill w-50 font-weight-bold text-muted btn-segment-tab d-flex align-items-center justify-content-center gap-1" id="btnTabPaketBundel" style="font-size: 0.8rem; background: transparent; transition: all 0.2s ease;">
+									<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+									<span>Paket AI</span>
+								</button>
+							</div>
+						</div>
+
+						<div id="secRekomIndividu">
+							<div class="rekomendasi-chips-bar">
+								<button class="chip-kategori-rekom aktif" data-kat="semua">Semua</button>
+								<button class="chip-kategori-rekom" data-kat="groceries">Kebutuhan Harian</button>
+								<button class="chip-kategori-rekom" data-kat="furniture">Furnitur</button>
+								<button class="chip-kategori-rekom" data-kat="kitchen">Dapur</button>
+								<button class="chip-kategori-rekom" data-kat="laptops">Gadget</button>
+								<button class="chip-kategori-rekom" data-kat="beauty">Kecantikan</button>
+								<button class="chip-kategori-rekom" data-kat="home">Dekorasi</button>
+							</div>
+
+							<div class="rekomendasi-body" id="daftarRekomendasiAI">
+								<div class="rekomendasi-kosong-box">
+									<div class="rekomendasi-kosong-icon">
+										<img src="assets/images/logo/logo_icon.svg" style="width: 28px; height: 28px;" alt="WhisperCart Logo">
+									</div>
+									<h4>Menunggu Rekomendasi AI</h4>
+									<p>Tanyakan kebutuhan belanja Anda ke Whisper AI. Produk yang direkomendasikan AI akan otomatis muncul di panel ini.</p>
+								</div>
+							</div>
+						</div>
+
+						<div id="secPaketBundel" style="display: none;">
+							<div class="rekomendasi-body" id="daftarPaketBundelAI">
+								<div class="rekomendasi-kosong-box">
+									<div class="rekomendasi-kosong-icon">
+										<img src="assets/images/logo/logo_icon.svg" style="width: 28px; height: 28px;" alt="WhisperCart Logo">
+									</div>
+									<h4>Paket Rekomendasi AI</h4>
+									<p>Mulai percakapan dengan Whisper AI untuk mendapatkan bundel paket belanja hemat (seperti Paket WFH, Paket Kamar, dll).</p>
+								</div>
+							</div>
+						</div>
+					</aside>
+
+				</div>
+
+			</div>
+		</main>
+
+	</div>
+
+	<script src="assets/js/sidebar.js"></script>
+	<script src="assets/js/ai.js"></script>
+</body>
+</html>

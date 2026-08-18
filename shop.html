@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="assets/images/favicon.png">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="assets/css/tiny-slider.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <title>Katalog Belanja — WhisperCart</title>
+</head>
+
+<body>
+
+	<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">
+				<img src="assets/images/logo/logo_icon.svg" alt="WhisperCart Logo" class="brand-logo-icon">
+				<span class="brand-logo-text">WhisperCart<span class="text-warning">.</span></span>
+			</a>
+
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarsFurni">
+				<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">Home</a>
+					</li>
+					<li class="active"><a class="nav-link" href="shop.html">Shop</a></li>
+					<li><a class="nav-link" href="about.html">About us</a></li>
+					<li><a class="nav-link" href="services.html">Services</a></li>
+					<li><a class="nav-link" href="contact.html">Contact us</a></li>
+				</ul>
+
+				<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-lg-4 d-flex align-items-center flex-row gap-3">
+					<li id="navUserPublicItem">
+						<a class="nav-link d-flex align-items-center" href="login.html" id="linkUserNav">
+							<img src="assets/images/user.svg" alt="User">
+						</a>
+					</li>
+					<li>
+						<a class="nav-link position-relative d-inline-flex align-items-center" href="cart.html">
+							<img src="assets/images/cart.svg" alt="Cart">
+							<span class="badge-keranjang badge-merah" id="badgeKeranjang" style="display: none;">0</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="hero">
+		<div class="container">
+			<div class="row justify-content-between">
+				<div class="col-lg-6">
+					<div class="intro-excerpt">
+						<h1>Katalog Belanja</h1>
+						<p class="mb-4">Temukan berbagai koleksi produk berkualitas pilihan AI dengan penawaran harga terbaik.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="untree_co-section product-section before-footer-section">
+	    <div class="container">
+
+			<div class="shop-filter-bar mb-5">
+				<div class="row g-3 align-items-center justify-content-center">
+					<div class="col-12 col-md-8 col-lg-6">
+						<div class="input-group search-box-wrap">
+							<input type="text" id="inputCari" class="form-control search-input" placeholder="Cari nama produk...">
+							<button class="btn btn-primary search-btn" type="button" id="tombolCari">
+								<i class="fa fa-search me-1"></i> Cari
+							</button>
+						</div>
+					</div>
+					<div class="col-12 text-center mt-3">
+						<div class="kategori-pills justify-content-center" id="wadahKategori"></div>
+					</div>
+				</div>
+			</div>
+
+	      	<div class="row" id="wadahProduk"></div>
+
+			<div class="text-center py-5" id="pesanKosong" style="display: none;">
+				<h4 class="text-muted">Produk tidak ditemukan</h4>
+				<p>Coba kata kunci lain atau pilih kategori yang berbeda.</p>
+			</div>
+
+			<!-- Pagination Section (Matching Image 2) -->
+			<div class="pagination-container" id="wadahPagination"></div>
+
+	    </div>
+	</div>
+
+	<div id="notifikasiToast" class="toast-notif"></div>
+
+	<footer class="footer-section">
+		<div class="container relative">
+
+			<div class="sofa-img">
+				<img src="assets/images/sofa.png" alt="Image" class="img-fluid">
+			</div>
+
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="subscription-form">
+						<h3 class="d-flex align-items-center"><span class="me-1"><img src="assets/images/envelope-outline.svg" alt="Image" class="img-fluid"></span><span>Langganan Info Promo</span></h3>
+
+						<form action="#" class="row g-3">
+							<div class="col-auto">
+								<input type="text" class="form-control" placeholder="Nama Anda">
+							</div>
+							<div class="col-auto">
+								<input type="email" class="form-control" placeholder="Email Anda">
+							</div>
+							<div class="col-auto">
+								<button class="btn btn-primary">
+									<span class="fa fa-paper-plane"></span>
+								</button>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="row g-5 mb-5">
+				<div class="col-lg-4">
+					<div class="mb-4 footer-logo-wrap">
+						<a href="index.html" class="footer-logo">
+							<img src="assets/images/logo/logo_icon.svg" alt="WhisperCart Logo" class="brand-logo-icon">
+							<span class="brand-logo-text">WhisperCart<span class="text-warning">.</span></span>
+						</a>
+					</div>
+					<p class="mb-4">WhisperCart adalah platform e-commerce berbasis AI yang dirancang untuk membantu Anda menemukan produk impian melalui bahasa natural.</p>
+
+					<ul class="list-unstyled custom-social">
+						<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+						<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
+						<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
+						<li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
+					</ul>
+				</div>
+
+				<div class="col-lg-8">
+					<div class="row links-wrap">
+							<div class="col-6 col-sm-6 col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="index.html">Home</a></li>
+									<li><a href="shop.html">Shop Katalog</a></li>
+									<li><a href="ai.html">Whisper AI</a></li>
+									<li><a href="about.html">Tentang Kami</a></li>
+									<li><a href="services.html">Layanan</a></li>
+									<li><a href="contact.html">Kontak Kami</a></li>
+								</ul>
+							</div>
+
+							<div class="col-6 col-sm-6 col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="ai.html">Intent Search AI</a></li>
+									<li><a href="ai.html">Bundle Generator</a></li>
+									<li><a href="index.html">Rekomendasi Cerdas</a></li>
+									<li><a href="ai.html">Asisten 24/7</a></li>
+								</ul>
+							</div>
+
+							<div class="col-6 col-sm-6 col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="login.html">Masuk / Daftar</a></li>
+									<li><a href="cart.html">Keranjang Belanja</a></li>
+									<li><a href="orders.html">Riwayat Pesanan</a></li>
+									<li><a href="dashboard.html">Dashboard Belanja</a></li>
+								</ul>
+							</div>
+
+							<div class="col-6 col-sm-6 col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="contact.html">Pusat Bantuan</a></li>
+									<li><a href="checkout.html">Metode Pembayaran</a></li>
+									<li><a href="contact.html">Syarat &amp; Ketentuan</a></li>
+									<li><a href="contact.html">Kebijakan Privasi</a></li>
+								</ul>
+							</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="border-top copyright">
+				<div class="row pt-4">
+					<div class="col-lg-6">
+						<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; WhisperCart</p>
+					</div>
+
+					<div class="col-lg-6 text-center text-lg-end">
+						<ul class="list-unstyled d-inline-flex ms-auto">
+							<li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</footer>
+
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/js/tiny-slider.js"></script>
+	<script src="assets/js/custom.js"></script>
+	<script src="assets/js/auth.js"></script>
+	<script src="assets/js/shop.js"></script>
+</body>
+</html>

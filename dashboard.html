@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="id">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+	<link rel="shortcut icon" href="assets/images/favicon.png">
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="assets/css/sidebar.css" rel="stylesheet">
+	<link href="assets/css/dashboard.css" rel="stylesheet">
+	<title>Beranda Belanja Member — WhisperCart</title>
+</head>
+
+<body>
+
+	<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+	<div class="tata-letak-aplikasi">
+
+		<aside class="sidebar" id="sidebarApp">
+			<div class="sidebar-kepala">
+				<a class="sidebar-merek" href="dashboard.html">
+					<img src="assets/images/logo/logo_icon.svg" alt="WhisperCart Logo" class="brand-logo-icon">
+					<span class="brand-logo-text">WhisperCart<span class="text-warning">.</span></span>
+				</a>
+				<button class="btn-toggle-sidebar" id="btnToggleSidebar" title="Minimize / Expand">
+					<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5">
+						<polyline points="15 18 9 12 15 6"></polyline>
+					</svg>
+				</button>
+			</div>
+
+			<div class="sidebar-chat-baru-wrap">
+				<a href="ai.html" class="btn-chat-baru text-decoration-none" id="btnChatBaruSidebar">
+					<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="12" y1="5" x2="12" y2="19"></line>
+						<line x1="5" y1="12" x2="19" y2="12"></line>
+					</svg>
+					<span>Obrolan Baru AI</span>
+				</a>
+			</div>
+
+			<div class="sidebar-cari">
+				<div class="sidebar-cari-box">
+					<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="11" cy="11" r="8"></circle>
+						<line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+					</svg>
+					<input type="text" id="inputCariSidebar" placeholder="Cari produk...">
+				</div>
+			</div>
+
+			<nav class="sidebar-menu">
+				<a href="dashboard.html" class="sidebar-item aktif">
+					<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+						<polyline points="9 22 9 12 15 12 15 22"></polyline>
+					</svg>
+					<span class="menu-teks">Beranda</span>
+				</a>
+				<a href="ai.html" class="sidebar-item ai-menu">
+					<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<rect x="3" y="11" width="18" height="10" rx="3"></rect>
+						<circle cx="12" cy="5" r="2"></circle>
+						<path d="M12 7v4"></path>
+						<line x1="8" y1="16" x2="8" y2="16"></line>
+						<line x1="16" y1="16" x2="16" y2="16"></line>
+					</svg>
+					<span class="menu-teks">Whisper AI</span>
+				</a>
+				<a href="cart.html" class="sidebar-item">
+					<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="9" cy="21" r="1"></circle>
+						<circle cx="20" cy="21" r="1"></circle>
+						<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+					</svg>
+					<span class="menu-teks">Keranjang</span>
+					<span class="sidebar-badge" id="sidebarBadgeKeranjang" style="display: none;">0</span>
+				</a>
+				<a href="orders.html" class="sidebar-item">
+					<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+						<polyline points="14 2 14 8 20 8"></polyline>
+						<line x1="16" y1="13" x2="8" y2="13"></line>
+						<line x1="16" y1="17" x2="8" y2="17"></line>
+						<polyline points="10 9 9 9 8 9"></polyline>
+					</svg>
+					<span class="menu-teks">Riwayat Pesanan</span>
+				</a>
+			</nav>
+
+			<div class="sidebar-akun">
+				<div class="sidebar-profil-info" style="cursor: pointer;">
+					<div id="sidebarAvatar">
+						<div class="sidebar-avatar-inisial">U</div>
+					</div>
+					<div>
+						<div class="sidebar-profil-nama" id="sidebarNamaUser">Pengguna</div>
+						<div class="sidebar-profil-email" id="sidebarEmailUser">user@whispercart.com</div>
+					</div>
+				</div>
+			</div>
+		</aside>
+
+		<main class="konten-utama" id="kontenUtamaApp">
+
+			<div class="top-bar-member">
+				<div class="d-flex align-items-center gap-3">
+					<button class="btn-mobile-menu d-lg-none" id="btnMobileMenu" title="Buka Menu" style="color: #233b33; width: 36px; height: 36px;">
+						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="3" y1="12" x2="21" y2="12"></line>
+							<line x1="3" y1="6" x2="21" y2="6"></line>
+							<line x1="3" y1="18" x2="21" y2="18"></line>
+						</svg>
+					</button>
+					<span class="fw-bold text-dark fs-5">Beranda Member</span>
+				</div>
+				<div class="d-flex align-items-center gap-3">
+					<a href="cart.html" class="btn-header-cart" title="Keranjang Belanja">
+						<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<circle cx="9" cy="21" r="1"></circle>
+							<circle cx="20" cy="21" r="1"></circle>
+							<path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+						</svg>
+						<span class="badge-merah" id="headerBadgeKeranjang" style="display: none;">0</span>
+					</a>
+					<div class="btn-header-profil" id="btnHeaderProfil">
+						<div class="sidebar-avatar-inisial header-avatar-circle" style="width: 28px; height: 28px; font-size: 0.8rem;">U</div>
+						<span class="header-profil-nama fw-semibold small text-dark d-none d-sm-inline">Pengguna</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-fluid py-4 px-3 px-lg-5">
+
+				<div class="p-4 p-md-5 mb-4 rounded-4 shadow-sm text-white position-relative overflow-hidden" style="background: linear-gradient(135deg, #233b33 0%, #3b5d50 100%);">
+					<div class="row align-items-center">
+						<div class="col-lg-8">
+							<span class="badge bg-warning text-dark px-3 py-1 rounded-pill mb-2 fw-bold">Eksklusif Member</span>
+							<h1 class="display-6 fw-bold mb-2 text-white" id="judulSapaan">Halo, Pengguna!</h1>
+							<p class="mb-4 text-white-50 fs-6">Selamat datang di ruang belanja pribadi Anda. Temukan berbagai produk berkualitas atau minta asisten Whisper AI mencarikan paket belanja terbaik.</p>
+							<div class="d-flex flex-wrap gap-2">
+								<a href="ai.html" class="btn px-4 py-2 rounded-pill shadow-sm d-inline-flex align-items-center gap-2 fw-bold" style="background: #ffffff; color: #233b33; border: none;">
+									<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10a9.96 9.96 0 0 1-4.7-1.17L2 22l1.17-5.3A9.96 9.96 0 0 1 2 12C2 6.477 6.477 2 12 2z"></path>
+									</svg>
+									<span>Tanya Whisper AI</span>
+								</a>
+								<a href="orders.html" class="btn btn-outline-light px-4 py-2 rounded-pill d-inline-flex align-items-center gap-2">
+									<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+										<path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+										<line x1="3" y1="6" x2="21" y2="6"></line>
+										<path d="M16 10a4 4 0 0 1-8 0"></path>
+									</svg>
+									<span>Riwayat Pesanan</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="kotak mb-4">
+					<div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-3">
+						<div>
+							<h2 class="h5 fw-bold text-dark mb-1">Katalog Produk WhisperCart</h2>
+							<p class="text-muted small mb-0">Pilih dan tambahkan produk ke keranjang belanja Anda secara langsung.</p>
+						</div>
+						<div class="pencarian">
+							<input type="text" id="kotakCari" placeholder="Cari nama produk...">
+							<button id="tombolCari">Cari</button>
+						</div>
+					</div>
+
+					<div class="kategori-pills mb-4" id="wadahKategori">
+						<button class="btn-kategori tombol-kategori active" data-kategori="">Semua Produk</button>
+						<button class="btn-kategori tombol-kategori" data-kategori="furniture">Furnitur</button>
+						<button class="btn-kategori tombol-kategori" data-kategori="kitchen-accessories">Peralatan Dapur</button>
+						<button class="btn-kategori tombol-kategori" data-kategori="beauty">Kecantikan</button>
+						<button class="btn-kategori tombol-kategori" data-kategori="fragrances">Wewangian</button>
+						<button class="btn-kategori tombol-kategori" data-kategori="groceries">Makanan & Buah</button>
+					</div>
+
+					<div class="product-section py-0">
+						<div class="row" id="daftarProduk"></div>
+					</div>
+					<p class="kosong text-center py-4" id="kosongProduk">Belum ada produk ditemukan.</p>
+					<div class="pagination-container mt-4 mb-4" id="wadahPagination"></div>
+				</div>
+
+			</div>
+
+		</main>
+
+	</div>
+
+	<div id="notifikasiToast" class="notifikasi-toast"></div>
+
+	<script src="assets/js/sidebar.js"></script>
+	<script src="assets/js/dashboard.js"></script>
+</body>
+</html>

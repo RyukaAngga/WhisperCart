@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Masuk / Daftar — WhisperCart</title>
+	<link rel="shortcut icon" href="assets/images/favicon.png">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="assets/css/login.css">
+</head>
+<body>
+	<div id="container" class="container">
+		<div class="row">
+			<div class="col align-items-center flex-col sign-up">
+				<div class="form-wrapper align-items-center">
+					<div class="form sign-up">
+						<div style="text-align: center; margin-bottom: 20px;">
+							<a href="index.html" style="text-decoration: none; display: inline-flex; align-items: center; gap: 10px;">
+								<img src="assets/images/logo/logo_icon.svg" alt="WhisperCart Logo" style="height: 38px; filter: brightness(0) invert(0.2);">
+								<span style="font-size: 26px; font-weight: 800; color: #3b5d50; letter-spacing: -0.5px;">WhisperCart<span style="color: #f9bf29;">.</span></span>
+							</a>
+						</div>
+						<div class="input-group">
+							<i class='bx bxs-user'></i>
+							<input type="text" id="namaDaftar" placeholder="Nama lengkap" autocomplete="name">
+						</div>
+						<div class="input-group">
+							<i class='bx bx-mail-send'></i>
+							<input type="email" id="emailDaftar" placeholder="Email" autocomplete="email">
+						</div>
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+							<input type="password" id="passwordDaftar" placeholder="Password minimal 8 karakter" autocomplete="new-password">
+						</div>
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+							<input type="password" id="ulangiDaftar" placeholder="Ulangi password" autocomplete="new-password">
+						</div>
+						<div class="pesan" id="pesanDaftar"></div>
+						<button id="tombolDaftar">
+							Daftar
+						</button>
+						<div class="pemisah">
+							<span>atau</span>
+						</div>
+						<a class="btn-google" href="/api/auth/google">
+							<i class='bx bxl-google'></i> Daftar dengan Google
+						</a>
+						<p>
+							<span>
+								Sudah punya akun?
+							</span>
+							<b onclick="toggle()" class="pointer">
+								Masuk di sini
+							</b>
+						</p>
+						<p>
+							<a class="tautan-beranda" href="index.html">
+								<i class='bx bx-home-alt'></i> Kembali ke Beranda
+							</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="col align-items-center flex-col sign-in">
+				<div class="form-wrapper align-items-center">
+					<div class="form sign-in">
+						<div style="text-align: center; margin-bottom: 20px;">
+							<a href="index.html" style="text-decoration: none; display: inline-flex; align-items: center; gap: 10px;">
+								<img src="assets/images/logo/logo_icon.svg" alt="WhisperCart Logo" style="height: 38px; filter: brightness(0) invert(0.2);">
+								<span style="font-size: 26px; font-weight: 800; color: #3b5d50; letter-spacing: -0.5px;">WhisperCart<span style="color: #f9bf29;">.</span></span>
+							</a>
+						</div>
+						<div class="input-group">
+							<i class='bx bx-mail-send'></i>
+							<input type="email" id="emailMasuk" placeholder="Email" autocomplete="email">
+						</div>
+						<div class="input-group">
+							<i class='bx bxs-lock-alt'></i>
+							<input type="password" id="passwordMasuk" placeholder="Password" autocomplete="current-password">
+						</div>
+						<div class="pesan" id="pesanMasuk"></div>
+						<button id="tombolMasuk">
+							Masuk
+						</button>
+						<div class="pemisah">
+							<span>atau</span>
+						</div>
+						<a class="btn-google" href="/api/auth/google">
+							<i class='bx bxl-google'></i> Masuk dengan Google
+						</a>
+						<p>
+							<span>
+								Belum punya akun?
+							</span>
+							<b onclick="toggle()" class="pointer">
+								Daftar di sini
+							</b>
+						</p>
+						<p>
+							<a class="tautan-beranda" href="index.html">
+								<i class='bx bx-home-alt'></i> Kembali ke Beranda
+							</a>
+						</p>
+					</div>
+				</div>
+				<div class="form-wrapper">
+				</div>
+			</div>
+		</div>
+		<div class="row content-row">
+			<div class="col align-items-center flex-col">
+				<div class="text sign-in">
+					<h2>
+						Selamat datang
+					</h2>
+				</div>
+				<div class="img sign-in">
+				</div>
+			</div>
+			<div class="col align-items-center flex-col">
+				<div class="img sign-up">
+				</div>
+				<div class="text sign-up">
+					<h2>
+						Gabung bersama kami
+					</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="assets/js/login.js"></script>
+</body>
+</html>

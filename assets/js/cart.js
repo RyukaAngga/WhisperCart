@@ -50,6 +50,19 @@ function simpanKeranjang(data) {
 
 function ubahJumlah(id, delta) {
 	const daftar = ambilKeranjang()
+	const targetItem = daftar.find(function(item) { return item.id === id; })
+	if (targetItem && targetItem.dariPaket) {
+		for (let i = 0; i < daftar.length; i++) {
+			if (daftar[i].dariPaket) {
+				daftar[i].jumlah = (daftar[i].jumlah || 1) + delta
+			}
+		}
+		const daftarBersih = daftar.filter(function(item) {
+			return !item.dariPaket || item.jumlah > 0
+		})
+		simpanKeranjang(daftarBersih)
+		return
+	}
 
 	for (let i = 0; i < daftar.length; i++) {
 		if (daftar[i].id === id) {
@@ -67,6 +80,14 @@ function ubahJumlah(id, delta) {
 
 function hapusItem(id) {
 	const daftar = ambilKeranjang()
+	const targetItem = daftar.find(function(item) { return item.id === id; })
+	if (targetItem && targetItem.dariPaket) {
+		const daftarBersih = daftar.filter(function(item) {
+			return !item.dariPaket
+		})
+		simpanKeranjang(daftarBersih)
+		return
+	}
 
 	for (let i = 0; i < daftar.length; i++) {
 		if (daftar[i].id === id) {

@@ -753,6 +753,47 @@ function tampilkanToastRekom(teks) {
 	}, 2500)
 }
 
+function tambahBanyakItemKeranjang(daftarItem, namaPaket) {
+	if (!daftarItem || daftarItem.length === 0) return
+
+	let keranjang = []
+	const simpanan = localStorage.getItem('keranjang')
+	if (simpanan) {
+		try {
+			keranjang = JSON.parse(simpanan)
+			if (!Array.isArray(keranjang)) {
+				keranjang = []
+			}
+		} catch (e) {
+			keranjang = []
+		}
+	}
+
+	keranjang = keranjang.filter(function (item) {
+		return !item.dariPaket
+	})
+
+	for (let i = 0; i < daftarItem.length; i++) {
+		const produk = daftarItem[i]
+		const idPaket = produk.id + '_paket'
+		keranjang.push({
+			id: idPaket,
+			title: produk.title,
+			price: produk.price,
+			image: produk.image || produk.thumbnail || 'assets/images/product-1.png',
+			category: (produk.category || 'umum') + ' (Paket AI)',
+			jumlah: 1,
+			dariPaket: true
+		})
+	}
+
+	localStorage.setItem('keranjang', JSON.stringify(keranjang))
+	if (typeof perbaruiSidebarBadge === 'function') {
+		perbaruiSidebarBadge()
+	}
+	tampilkanToastRekom(namaPaket + ' berhasil dimasukkan ke keranjang!')
+}
+
 function tambahKeranjangRekom(produk) {
 	let keranjang = []
 	const simpanan = localStorage.getItem('keranjang')
